@@ -1,7 +1,6 @@
 import allure
 import requests
 
-from conftest import new_order_parameters
 from constants import Constants
 
 

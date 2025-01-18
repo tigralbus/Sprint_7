@@ -1,8 +1,46 @@
+import json
 import random
-
 import pytest
 
+from courier_routes import CourierRoutes
 from helpers import RandomHelper
+from order_routes import OrderRoutes
+
+
+@pytest.fixture(scope='function')
+def disposable_courier(new_courier_parameters):
+    couriers = CourierRoutes()
+    # Создаем курьера и получаем его ID
+    response = couriers.create_courier(new_courier_parameters)
+    courier_id = couriers.login_courier_return_id(new_courier_parameters['login'], new_courier_parameters['password'])
+    yield courier_id, new_courier_parameters, response  # Передаем ID курьера в тест
+    # Выполняем удаление курьера после завершения теста
+    couriers.delete_courier(courier_id)
+
+
+@pytest.fixture(scope='function')
+def disposable_order_with_color(new_order_parameters, color):
+    orders = OrderRoutes()
+    new_order_parameters["color"] = color
+    create_order_payload = json.dumps(new_order_parameters)
+    response = orders.create_order(create_order_payload)
+    cancel_order_payload = {
+        "track": str(response.json()["track"])
+    }
+    yield new_order_parameters, response
+    orders.cancel_order(cancel_order_payload)
+
+
+@pytest.fixture(scope='function')
+def disposable_order(new_order_parameters):
+    orders = OrderRoutes()
+    response = orders.create_order(new_order_parameters)
+    order_track = str(response.json()["track"])
+    cancel_order_payload = {
+        "track": order_track
+    }
+    yield order_track, new_order_parameters, response
+    orders.cancel_order(cancel_order_payload)
 
 
 @pytest.fixture(scope='function')
@@ -59,8 +97,8 @@ def orders_list_parameters():
 
 
 @pytest.fixture(scope='function')
-def updated_courier_parameters(parameters):
-    parameters_updated = parameters
-    parameters_updated["password"] = f"{parameters["password"]}_updated"
-    parameters_updated["firstName"] = f"{parameters["firstName"]}_updated"
+def updated_courier_parameters(new_courier_parameters):
+    parameters_updated = new_courier_parameters
+    parameters_updated["password"] = f"{new_courier_parameters["password"]}_updated"
+    parameters_updated["firstName"] = f"{new_courier_parameters["firstName"]}_updated"
     return parameters_updated

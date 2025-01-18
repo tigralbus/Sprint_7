@@ -8,3 +8,8 @@ class Constants:
     INVALID_SYNTAX_MSSG = 'invalid input syntax for type integer:'
     NO_DATA_FOR_LOGIN_MSSG = "Недостаточно данных для входа"
     ACCOUNT_NOT_FOUND_MSSG = "Учетная запись не найдена"
+    ORDER_ID_NOT_EXIST_MSSG = "Заказа с таким id не существует"
+    COURIER_ID_NOT_EXIST_MSSG = "Курьера с таким id не существует"
+    NO_DATA_FOR_SEARCH = "Недостаточно данных для поиска"
+    NOT_FOUND_MSSG = "Not Found."
+    ORDER_NOT_FOUND_MSSG = "Заказ не найден"

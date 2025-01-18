@@ -1,6 +1,5 @@
 import allure
 import requests
-from conftest import new_courier_parameters
 from constants import Constants
 
 
