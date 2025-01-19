@@ -2,7 +2,7 @@ import allure
 
 from conftest import orders_list_parameters
 from constants import Constants
-from order_routes import OrderRoutes
+from routes.order_routes import OrderRoutes
 
 # Дополнительное задание
 class TestGetOrdersList:

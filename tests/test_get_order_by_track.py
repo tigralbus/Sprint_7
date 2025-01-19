@@ -2,7 +2,7 @@ import allure
 
 from conftest import new_order_parameters, disposable_order
 from constants import Constants
-from order_routes import OrderRoutes
+from routes.order_routes import OrderRoutes
 
 
 # Дополнительное задание

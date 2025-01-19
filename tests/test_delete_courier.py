@@ -1,7 +1,7 @@
 import allure
 from conftest import new_courier_parameters
 from constants import Constants
-from courier_routes import CourierRoutes
+from routes.courier_routes import CourierRoutes
 
 
 class TestDeleteCourier:

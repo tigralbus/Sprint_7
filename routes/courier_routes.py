@@ -30,5 +30,5 @@ class CourierRoutes:
 
     @allure.step('Удалить курьера')
     def delete_courier(self, courier_id):
-        response_delete = requests.delete(f"https://qa-scooter.praktikum-services.ru/api/v1/courier/{courier_id}")
+        response_delete = requests.delete(f"{Constants.URL}/courier/{courier_id}")
         return response_delete

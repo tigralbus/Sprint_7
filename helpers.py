@@ -1,8 +1,6 @@
 import random
 import string
 
-from order_routes import OrderRoutes
-
 
 class RandomHelper:
 

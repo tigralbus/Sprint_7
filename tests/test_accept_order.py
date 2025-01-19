@@ -2,8 +2,8 @@ import allure
 
 from conftest import new_order_parameters, new_courier_parameters, disposable_courier, disposable_order
 from constants import Constants
-from courier_routes import CourierRoutes
-from order_routes import OrderRoutes
+from routes.courier_routes import CourierRoutes
+from routes.order_routes import OrderRoutes
 
 
 class TestAcceptOrder:

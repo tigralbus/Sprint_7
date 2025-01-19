@@ -2,9 +2,9 @@ import json
 import random
 import pytest
 
-from courier_routes import CourierRoutes
+from routes.courier_routes import CourierRoutes
 from helpers import RandomHelper
-from order_routes import OrderRoutes
+from routes.order_routes import OrderRoutes
 
 
 @pytest.fixture(scope='function')

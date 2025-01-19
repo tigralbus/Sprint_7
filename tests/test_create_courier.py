@@ -2,7 +2,7 @@ import allure
 import pytest
 from conftest import new_courier_parameters, updated_courier_parameters, disposable_courier
 from constants import Constants
-from courier_routes import CourierRoutes
+from routes.courier_routes import CourierRoutes
 
 
 class TestCreateCourier:
